@@ -1,0 +1,35 @@
+COMO INICIAR
+El sistema se compone de tres módulos independientes que interactúan mediante solicitudes HTTP/REST y conexiones TCP/IP:
+
+Microservicio Frontend: Aplicación web desarrollada en PHP que renderiza la interfaz de usuario. Consume exclusivamente la API REST del backend para realizar operaciones CRUD sobre los productos. Puerto asignado: 8080.
+
+Microservicio Backend: API RESTful en PHP que procesa la lógica de negocio, valida datos y realiza la persistencia mediante consultas PDO. Puerto asignado: 8000.
+
+Base de Datos: Gestor de base de datos relacional MySQL 8.0 ejecutado en un contenedor Docker con almacenamiento persistente. Puerto asignado: 3306.
+
+2. Requisitos Previos
+Docker Desktop instalado y en ejecución.
+
+Entorno de ejecución PHP versión 8.0 o superior.
+
+Consola de comandos o terminal de sistema.
+
+3. Guía de Despliegue y Puesta en Marcha
+Paso 1: Inicialización de la Base de Datos con Docker Compose(TODO EN BASH)
+Desde el directorio raíz del proyecto, ejecute el siguiente comando para levantar el contenedor de MySQL e inicializar la base de datos db_minimarket_pro413:
+
+docker compose up -d
+
+Paso 2: Ejecución del Microservicio Backend (API REST)
+Abre una terminal en el directorio backend e inicie el servicio web:
+
+cd backend
+/c/xampp/php/php.exe -S localhost:8000
+Dirección de verificación: http://localhost:8000/api/productos.php
+
+Paso 3: Ejecución del Microservicio Frontend (Cliente Web)
+Abre una segunda terminal en el directorio frontend e inicie el cliente web:
+
+cd frontend
+/c/xampp/php/php.exe -S localhost:8080
+Dirección de verificación: http://localhost:8080
